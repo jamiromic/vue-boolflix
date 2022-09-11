@@ -20,13 +20,12 @@
         name: 'MainComponent',
         data() {
             return {
-                
 
             }
         },
         methods: {
             findedMovies() {
-                axios.get(`${store.base_url}/search/movie?api_key=${store.api_key}&language=${store.original_language}&query=${store.query}`,{
+                axios.get(`${store.base_url}/search/movie?api_key=${store.api_key}&language=${store.original_language}&query='ritorno'`,{
                 })
                 .then((res) =>  {
                 console.log(res)
@@ -40,13 +39,14 @@
         computed: {
             searchMovies() {
                 return store.movies
-            }
+            },
+               
 
         },
         
         created()  {
             this.findedMovies()
-        }, 
+        },
        
     }
    
