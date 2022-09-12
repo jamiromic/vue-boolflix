@@ -4,11 +4,12 @@
                 Movies
             </h1>
             <li v-for="movie in searchMovies" :key="movie.id" class="card">
-            <h1>{{ movie.title }}</h1>
-            <h2>{{ movie.original_title }}</h2>
-            <img :src="store.original_language[movie.original_language]" alt="">
-            <h2>{{ movie.vote_average }}</h2>
-        </li>
+                <img :src="`https://image.tmdb.org/t/p/${store.pathImage.imgSize}${movie.poster_path}`" alt="Image Movies">
+                <h1>{{ movie.title }}</h1>
+                <h2>{{ movie.original_title }}</h2>
+                <img :src="store.original_language[movie.original_language]" alt="">
+                <h2>{{ getVote(movie.vote_average) }}</h2>
+            </li>
        </ul>
 </template>
 
@@ -25,6 +26,11 @@
             return store.movies;
         },
     },
+    methods: {
+        getVote(data) {
+            return Math.round(data / 2)
+        }
+    }
     
 }
 </script>

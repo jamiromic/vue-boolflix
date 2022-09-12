@@ -13,7 +13,13 @@ const store = Vue.observable({
         fr: 'https://www.viaggiaregratis.eu/wp-content/uploads/2021/12/Bandiera-Francia.webp',
         es: 'https://www.viaggiaregratis.eu/wp-content/uploads/2021/12/Bandiera-Spagna.webp',
 
-    }, 
+    },
+    pathImage: {
+        imgUrl: 'https://image.tmdb.org/t/p/',
+        imgSize: 'w342',
+
+    },
+    
 
 })
 
