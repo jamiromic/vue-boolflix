@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <HeaderComponent/>
-    <MainComponent/>
+    <CardMovieComponent/>
+    <CardSeriesComponent/>
     
     
   </div>
@@ -9,7 +10,8 @@
 
 <script>
   import HeaderComponent from './components/HeaderComponent.vue';
-  import MainComponent from './components/MainComponent.vue';
+  import CardMovieComponent from './components/CardMovieComponent.vue';
+  import CardSeriesComponent from './components/CardSeriesComponent.vue';
 
 
 
@@ -17,8 +19,9 @@ export default {
   name: 'App',
   components: {
     HeaderComponent,
-    MainComponent
-  },
+    CardMovieComponent,
+    CardSeriesComponent
+},
   
 }
 

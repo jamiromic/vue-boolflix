@@ -3,7 +3,7 @@
         <header>
             <h1>Boolflix</h1>
             <input v-model="searchFilm" class="input_text" type="text" placeholder="Cerca il tuo film/serie">
-            <button @click="inputUser" type="submit" >Cerca</button>
+            <button @click="inputUserMovies" type="submit" >Cerca</button>
         </header>
 
     </div>
@@ -24,26 +24,39 @@
         },
 
         methods: {
-            inputUser() {
+            inputUserMovies() {
                 store.query = this.searchFilm
                 if (store.query.trim() === '') {
 
-                    alert('Inserisci un valore valido')
-
-                    
+                    alert('Inserisci un valore valido')   
                     
                 } else {
+                    axios.all([
+                    axios.get(`${store.base_url}/search/movie`,{
+                        params: {
+                            api_key: store.api_key,
+                            query: store.query
+                        }
+                        
+                    }),
+                    axios.get(`${store.base_url}/search/tv`,{
+                        params: {
+                            api_key: store.api_key,
+                            query: store.query
+                        }
+                        
+                    }),
 
+
+                    ])
+                    .then(axios.spread((res,res1) =>  {
+                        
+                    console.log(res,res1)
+
+                    store.movies = res.data.results,
+                    store.series = res1.data.results
                     
-                
-                    axios.get(`${store.base_url}/search/movie?api_key=${store.api_key}&language=${store.original_language}&query=${store.query}`,{
-                    })
-                    .then((res) =>  {
-                    console.log(res)
-                    store.movies = res.data.results
-                
-
-                    })
+                    }))
                     
                 }
                 
