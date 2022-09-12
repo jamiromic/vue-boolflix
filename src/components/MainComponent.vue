@@ -13,7 +13,7 @@
 </template>
 
 <script>
-    import axios from 'axios';
+    
     import store from '../store';
 
     export default {
@@ -23,19 +23,7 @@
 
             }
         },
-        methods: {
-            findedMovies() {
-                axios.get(`${store.base_url}/search/movie?api_key=${store.api_key}&language=${store.original_language}&query='ritorno'`,{
-                })
-                .then((res) =>  {
-                console.log(res)
-                store.movies = res.data.results
-                
-
-                })
-
-            },
-        },
+        
         computed: {
             searchMovies() {
                 return store.movies
@@ -44,9 +32,6 @@
 
         },
         
-        created()  {
-            this.findedMovies()
-        },
        
     }
    
