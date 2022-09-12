@@ -50,9 +50,7 @@
 
                     ])
                     .then(axios.spread((res,res1) =>  {
-                        
                     console.log(res,res1)
-
                     store.movies = res.data.results,
                     store.series = res1.data.results
                     

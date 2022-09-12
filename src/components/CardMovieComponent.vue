@@ -4,7 +4,7 @@
                 Movies
             </h1>
             <li v-for="movie in searchMovies" :key="movie.id" class="card">
-                <img :src="`https://image.tmdb.org/t/p/${store.pathImage.imgSize}${movie.poster_path}`" alt="Image Movies">
+                <img :src=" (movie.poster_path === null) ? 'https://w7.pngwing.com/pngs/116/765/png-transparent-clapperboard-computer-icons-film-movie-poster-angle-text-logo-thumbnail.png' : `https://image.tmdb.org/t/p/${store.pathImage.imgSize}${movie.poster_path}`" alt="Image Movies">
                 <h1>{{ movie.title }}</h1>
                 <h2>{{ movie.original_title }}</h2>
                 <img :src="store.original_language[movie.original_language]" alt="">
