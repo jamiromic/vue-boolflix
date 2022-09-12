@@ -6,7 +6,7 @@
             <li v-for="movie in searchMovies" :key="movie.id" class="card">
             <h1>{{ movie.title }}</h1>
             <h2>{{ movie.original_title }}</h2>
-            <img src="https://www.viaggiaregratis.eu/wp-content/uploads/2021/12/Bandiera-Italia.webp" alt="">
+            <img :src="store.original_language[movie.original_language]" alt="">
             <h2>{{ movie.vote_average }}</h2>
         </li>
        </ul>
@@ -15,16 +15,16 @@
 <script>
     import store from '../store';
     export default {
-        store: '',
+        data() {
+            return {
+                store: store,
+            }
+        },
     computed: {
         searchMovies() {
             return store.movies;
         },
     },
-   methods: {
-
-  
-   }
     
 }
 </script>
