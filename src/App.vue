@@ -27,6 +27,9 @@ export default {
 
 </script>
 
+
 <style lang="scss">
+  @import './styles/index.scss';
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 </style>

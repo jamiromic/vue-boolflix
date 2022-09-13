@@ -12,6 +12,12 @@ const store = Vue.observable({
         us: 'https://www.viaggiaregratis.eu/wp-content/uploads/2021/12/Bandiera-Stati-Uniti.webp',
         fr: 'https://www.viaggiaregratis.eu/wp-content/uploads/2021/12/Bandiera-Francia.webp',
         es: 'https://www.viaggiaregratis.eu/wp-content/uploads/2021/12/Bandiera-Spagna.webp',
+        pt: 'https://www.viaggiaregratis.eu/wp-content/uploads/2021/12/Bandiera-Portogallo.webp',
+        ja: 'https://www.viaggiaregratis.eu/wp-content/uploads/2021/12/Bandiera-Giappone.webp',
+        is: 'https://www.viaggiaregratis.eu/wp-content/uploads/2021/12/Bandiera-Islanda.webp',
+        th: 'https://www.viaggiaregratis.eu/wp-content/uploads/2021/12/Bandiera-Thailandia.webp',
+        vi: 'https://www.viaggiaregratis.eu/wp-content/uploads/2021/12/Bandiera-Vietnam.webp',
+
 
     },
     pathImage: {
@@ -19,6 +25,7 @@ const store = Vue.observable({
         imgSize: 'w342',
 
     },
+    overview: 'Non presente',
     
 
 })
