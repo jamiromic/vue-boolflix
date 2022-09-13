@@ -76,12 +76,12 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 2rem 3rem;
+        padding: 2rem;
 
         h1 {
             text-transform: uppercase;
             color: red;
-            font-size: 1.5rem;
+            font-size: 2rem;
         }
 
         button {

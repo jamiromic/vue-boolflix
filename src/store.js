@@ -17,6 +17,7 @@ const store = Vue.observable({
         is: 'https://www.viaggiaregratis.eu/wp-content/uploads/2021/12/Bandiera-Islanda.webp',
         th: 'https://www.viaggiaregratis.eu/wp-content/uploads/2021/12/Bandiera-Thailandia.webp',
         vi: 'https://www.viaggiaregratis.eu/wp-content/uploads/2021/12/Bandiera-Vietnam.webp',
+        withoutFlag: 'https://images.emojiterra.com/google/noto-emoji/v2.034/512px/2753.png',
 
 
     },

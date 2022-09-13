@@ -1,8 +1,5 @@
 <template>
-        <ul>
-            <h1 class="title">
-                Movies
-            </h1>
+        <ul class="wrapper">
             <li v-for="movie in searchMovies" :key="movie.id" class="card">
                 <img class="card_poster" 
                 :src=" (movie.poster_path === null) ? 'https://w7.pngwing.com/pngs/116/765/png-transparent-clapperboard-computer-icons-film-movie-poster-angle-text-logo-thumbnail.png' : `https://image.tmdb.org/t/p/${store.pathImage.imgSize}${movie.poster_path}`" alt="Image Movies">
@@ -10,9 +7,17 @@
                     <h1 class="card_title">Titolo:  <span>{{ movie.title }}</span></h1>
                     <h2 class="card_orig_title">Titolo originale:   <span>{{ movie.original_title }}</span></h2>
                     <span class="card_lang_orig">Lingua originale:  <img class="flag" 
-                    :src="store.original_language[movie.original_language]" alt=""></span>
-                    <h2 class="card_vote">Voto:  {{ getVote(movie.vote_average) }}</h2>
-                    <span class="overview">Overview: <p>{{movie.overview}}</p></span>
+                    :src="flagOut(movie.original_language)" alt=""></span>
+                    <ul class="card_vote">
+                        <span class="vote">Voto:</span>
+                        <li v-for="n in getVote(movie.vote_average)" :key="n">
+                            <font-awesome-icon icon="fa-solid fa-star"/>
+                        </li>
+                        <li v-for="n in (5 - getVote(movie.vote_average))" :key="n + 6">
+                            <font-awesome-icon icon="fa-regular fa-star"/>
+                        </li>
+                    </ul>
+                    <span class="overview">Overview: <p>{{movie.overview === '' ? store.overview : movie.overview}}</p></span>
                 </div>
             </li>
        </ul>
@@ -34,17 +39,31 @@
     methods: {
         getVote(data) {
             return Math.round(data / 2)
+        },
+        flagOut(input) {
+            if (Object.keys(store.original_language).includes(input)) {
+
+                return store.original_language[input]
+                
+            } else {
+                return store.original_language.withoutFlag
+            }
+
         }
     }
+
     
 }
 </script>
 
 <style lang="scss" scoped>
-    .title {
-        color: whitesmoke;
-        text-transform: uppercase;
-        font-size: 1.75rem;
+    
+
+    .wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        padding: 2rem 1rem ;
     }
 
     .card_poster {
@@ -61,7 +80,7 @@
         height: 530px;
         display: flex;
         flex-direction: column;
-        overflow: hidden;
+        overflow: auto;
         position: relative;
         opacity: 0;
         padding: 1.25rem;
@@ -106,17 +125,28 @@
     }
 
     .card_vote {
-        font-size: 1.75rem;
+        color: rgb(255, 217, 0);
+        display: flex;
+        align-items: center;
+
+        .vote {
+            color: white;
+            font-size: 1.75rem;
+            font-weight: bold;
+            padding-right: 1rem;
+        }
     }
 
     .overview {
         font-size: 1.75rem;
         font-weight: bold;
+       
 
         p {
-            display: inline;
+            
             font-size: 1.25rem;
             font-weight: 300;
+            
         }
     }
 

@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <HeaderComponent/>
+    <h1 class="title">Movies</h1>
     <CardMovieComponent/>
+    <h1 class="title">Series</h1>
     <CardSeriesComponent/>
     
     
@@ -31,5 +33,14 @@ export default {
 <style lang="scss">
   @import './styles/index.scss';
   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+  .title {
+    color: whitesmoke;
+    text-transform: uppercase;
+    font-size: 1.75rem;
+    padding: 2rem;
+
+  }
 
 </style>
